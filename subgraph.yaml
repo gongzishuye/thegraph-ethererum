@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -13,29 +13,11 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Mint
-        - MintFinished
-        - Pause
-        - Unpause
-        - Burn
-        - Approval
-        - Transfer
+        - TokenHolder
       abis:
         - name: Mana
           file: ./abis/Mana.json
       eventHandlers:
-        - event: Mint(indexed address,uint256)
-          handler: handleMint
-        - event: MintFinished()
-          handler: handleMintFinished
-        - event: Pause()
-          handler: handlePause
-        - event: Unpause()
-          handler: handleUnpause
-        - event: Burn(indexed address,uint256)
-          handler: handleBurn
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/mapping.ts
